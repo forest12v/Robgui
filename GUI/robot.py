@@ -9,5 +9,12 @@ class Motion:
         ee_DO_num=7,
         )
         self.robot.connect()
+        if self.robot.gripper == True:
+            self.robot.gripper(False)
+
     def Moving(self,axis,mode="joint"):
         self.robot.move(mode,axis)
+
+    def turn_gripper(self,mode):
+        self.robot.gripper(mode)
+        print(f'gripper - {mode}')
